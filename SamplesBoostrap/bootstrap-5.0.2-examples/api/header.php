@@ -5,7 +5,7 @@ header('Content-Type: application/json');
  * 
  */
 //$result = 'Test';
-$host = 'cinqjom24.mysql.db'; //test2
+$host = 'cinqjom24.mysql.db'; //test3
 $dbname = 'cinqjom24';  
 $username = 'cinqjom24'; 
 $password = 'GEOgeo231094';
