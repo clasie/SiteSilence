@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./meditation3.png">    
+    <title>Retraite Silencieuse</title>
+    <style>
+        /* Arrière-plan global */
+        body {
+            font-family: 'courier', sans-serif;
+            background-color: #f9f2e7;
+            background-image: radial-gradient(circle at center, rgba(248, 238, 219, 0.8), #f7e8d0 50%, #f3e3c8),
+                              url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            background-size: cover, 300px 300px;
+            background-blend-mode: multiply;
+            color: #4e342e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2em;
+            color: #8d6e63;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            /* Retirée la bordure */
+        }
+
+        /* Style des îlots de texte */
+        .text-island-container {
+            position: relative;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* "Tab" pour titre ou remarque */
+        .text-island-tab {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            background-color: #ffb74d;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-island {
+            background-color: #fff3e0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.0em;
+            line-height: 1.6em;
+            color: #6d4c41;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* Mots en évidence */
+        .highlight {
+            color: #8d6e63;
+            font-weight: bold;
+            /*background-color: #ffe0b2;*/
+            padding: 2px 4px;
+            border-radius: 4px;
+            /*font-style: italic;*/
+            text-decoration-line: underline;
+        }
+
+        /* Style des îlots des étapes */
+        .island-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .island {
+            position: relative;
+            width: 300px;
+            min-height: 140px;
+            background-color: #ffebd7;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .island:hover {
+            transform: scale(1.05);
+        }
+
+        .island-part {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4e342e;
+            overflow-wrap: break-word;
+        }
+
+        .top-part {
+            background-color: #ffd180;
+            border-bottom: 2px solid #ffcc80;
+        }
+
+        .bottom-part {
+            background-color: #ffcc80;
+            text-align: left;
+            
+        }
+
+        /* Tooltip au clic */
+        .island-tooltip {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #5d4037;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            opacity: 0;
+            visibility: hidden;
+            white-space: pre-line;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 180px;
+        }
+
+        .island.active .island-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const islands = document.querySelectorAll('.island');
+            islands.forEach(island => {
+                island.addEventListener('click', () => {
+                    islands.forEach(el => el.classList.remove('active'));
+                    island.classList.toggle('active');
+                });
+            });
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.island')) {
+                    islands.forEach(el => el.classList.remove('active'));
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Retraite Silencieuse</h1>
+        <img width="10%" src="./meditation3.png">
+        <h1 class="title">5 Jours de Méditation et de jeûne</h1>
+
+        <!-- Îlots de texte principal avec "tab" pour titre -->
+        <div class="text-island-container">
+            <div style="color: rgb(127, 15, 179);" class="text-island-tab">info@cinqjoursdesilence.be</div>
+            <div class="text-island">
+              <p>  Découvrez une <span class="highlight">retraite exigeante</span> de cinq jours. <span class="highlight">Silence complet</span>,<span class="highlight">méditation</span>, 
+                <span class="highlight">jeûne à l’eau</span> et <span class="highlight">exercices physiques doux</span>(inspirés entre autre des 5 tibétains).</p>
+            </div>
+        </div>
+        <div class="text-island-container">
+            <div class="text-island-tab">Condition Stricte</div>
+            <div class="text-island">
+                <p>Destinée aux méditants déjà autonomes, cette expérience se vit en duo avec un accompagnateur. </p>
+                <p>Celui-ci se soumet évidemment aux mêmes conditions.</p> 
+            </div>
+        </div>
+        <div class="text-island-container">
+            <div class="text-island-tab">Présence et Attention</div>
+            <div class="text-island">
+                <p>Attentif et présent, l’accompagnateur n’est <span class="highlight">pas un guide spirituel ni un enseignant</span>.</p>
+                <p>C'est un pratiquant sincère engagé sur sa voie depuis plusieurs années comme vous sur la vôtre. </p>
+                <p>Son rôle ne se limite pas à vous accompagner passivement mais à veiller à votre bien être ainsi qu'au bon déroulement de l'expérience qui, vu son carractère ascétique inhabituel, peut être interrompue à tout moment.</p>
+                <p>D'où l'importance de bien s'y préparer.</p>
+            </div>
+        </div>
+        <div class="text-island-container">
+            <div class="text-island-tab">Début d'un petit voyage de 5 jours dans un coin de la campagne bretonne</div>
+            <div class="text-island">
+                <p>La retraite se passe dans une modeste longère à l'entrée d'un petit village dans la campagne bretonne.</p>
+                <P>Le confort y est spartiate.</P>
+                <P>L'endroit est accessible sans voiture, un train de campagne s'y arrête non loin. </p>                
+            </div>
+        </div>
+
+        <!-- Îlots des étapes -->
+        <div class="island-container">
+            <div class="island">
+                <div class="island-part top-part">Jour 1<br>Prise de contact</div>
+                <div class="island-part bottom-part">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    13:00 - Arrivée<br>
+                    00:00 - Prise de contact<br>
+                    00:00 - Installation<br>
+                    00:00 - Remise de l'horaire<br>
+                    00:00 - Revue des règles de bon fonctionnement<br>
+                    00:00 - Questions/réponses <br>
+                    16:00 - Entrée en silence/jeûne<br>
+                    16:00 - Meditation (1h)<br>
+                    17:00 - Pause (15')<br>
+                    17:15 - Lecture/Ecriture (1h)<br>
+                    18:15 - Pause (15')<br>
+                    18:30 - Meditation (1h)<br>
+                    19:30 - Pause (15') <br>
+                    19:45 - Toilette du soir (1h)<br>
+                    20:45 - Lecture/Ecriture (1h)<br>
+                    21:45 - Fin journée                    
+                </div>
+                <div class="island-tooltip">Se déconnecter pour mieux se retrouver</div>
+            </div>
+            <div class="island">
+                <div class="island-part top-part">Jour 2<br>Activités</div>
+                <div class="island-part bottom-part">
+                    06:30 - Lever<br>                   
+                    07:00 - Meditation (1h)<br>     
+                    08:00 - Pause (15')<br>   
+                    08:15 - Exercices physiques (1h30)<br>     
+                    09:45 - Douche (1h)<br>                                 
+                    10:45 - Meditation (1h)<br>
+                    11:45 - Pause (15')<br>
+                    12:00 - Lecture/Ecriture (1h)<br>
+                    13:00 - Pause (15')<br>
+                    13:15 - Meditation (1h)<br>
+                    14:15 - Pause (15')<br>
+                    14:30 - Exercices physiques (1h30)<br>
+                    16:00 - Douche (1h)<br>
+                    17:00 - Lecture/Ecriture (1h)<br>
+                    18:00 - Pause (15')<br>
+                    18:15 - Meditation (1h)<br>
+                    19:15 - Pause (15') <br>
+                    19:30 - Toilette du soir (1h)<br>
+                    20:30 - Lecture/Ecriture (1h)<br>
+                    21:30 - Fin journée
+                </div>
+                <div class="island-tooltip">Explorer la quiétude et le silence du mental</div>
+            </div>
+            <div class="island">
+                <div class="island-part top-part">Jour 3<br>Activités</div>
+                <div class="island-part bottom-part">
+                    06:30 - Lever<br>                   
+                    07:00 - Meditation (1h)<br>     
+                    08:00 - Pause (15')<br>   
+                    08:15 - Exercices physiques (1h30)<br>     
+                    09:45 - Douche (1h)<br>                                 
+                    10:45 - Meditation (1h)<br>
+                    11:45 - Pause (15')<br>
+                    12:00 - Lecture/Ecriture (1h)<br>
+                    13:00 - Pause (15')<br>
+                    13:15 - Meditation (1h)<br>
+                    14:15 - Pause (15')<br>
+                    14:30 - Exercices physiques (1h30)<br>
+                    16:00 - Douche (1h)<br>
+                    17:00 - Lecture/Ecriture (1h)<br>
+                    18:00 - Pause (15')<br>
+                    18:15 - Meditation (1h)<br>
+                    19:15 - Pause (15') <br>
+                    19:30 - Toilette du soir (1h)<br>
+                    20:30 - Lecture/Ecriture (1h)<br>
+                    21:30 - Fin journée                    
+                </div>
+                <div class="island-tooltip">Affronter et dépasser ses limites internes</div>
+            </div>
+            <div class="island">
+                <div class="island-part top-part">Jour 4<br>Activités</div>
+                <div class="island-part bottom-part">
+                    06:30 - Lever<br>                   
+                    07:00 - Meditation (1h)<br>     
+                    08:00 - Pause (15')<br>   
+                    08:15 - Exercices physiques (1h30)<br>     
+                    09:45 - Douche (1h)<br>                                 
+                    10:45 - Meditation (1h)<br>
+                    11:45 - Pause (15')<br>
+                    12:00 - Lecture/Ecriture (1h)<br>
+                    13:00 - Pause (15')<br>
+                    13:15 - Meditation (1h)<br>
+                    14:15 - Pause (15')<br>
+                    14:30 - Exercices physiques (1h30)<br>
+                    16:00 - Douche (1h)<br>
+                    17:00 - Lecture/Ecriture (1h)<br>
+                    18:00 - Pause (15')<br>
+                    18:15 - Meditation (1h)<br>
+                    19:15 - Pause (15') <br>
+                    19:30 - Toilette du soir (1h)<br>
+                    20:30 - Lecture/Ecriture (1h)<br>
+                    21:30 - Fin journée                    
+                </div>
+                <div class="island-tooltip">Construire une paix intérieure durable</div>
+            </div>
+            <div class="island">
+                <div class="island-part top-part">Jour 5<br>Fin retraite</div>
+                <div class="island-part bottom-part">
+                    06:30 - Lever<br>                   
+                    07:00 - Meditation (1h)<br>     
+                    08:00 - Pause (15')<br>   
+                    08:15 - Exercices physiques (1h30)<br>     
+                    09:45 - Douche (1h)<br>                                 
+                    10:45 - Meditation (1h)<br>
+                    11:45 - Pause (15')<br>
+                    12:00 - Lecture/Ecriture (1h)<br>
+                    13:00 - Sortie du silence et du jeûne en douceur<br>            
+                </div>
+                <div class="island-tooltip">Réintégration en douceur et clarté d'esprit</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

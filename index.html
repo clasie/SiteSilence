@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retraite Silencieuse</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f3e6e8, #d8d3cd);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 800px;
+            padding: 40px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #6b4f4f;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            margin: 1em 0;
+        }
+        .highlight {
+            color: #d1604d;
+            font-weight: bold;
+        }
+        .islets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        .islet {
+            flex: 1 1 calc(45% - 20px);
+            background-color: #f4f0eb;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .islet:hover {
+            transform: scale(1.05);
+            background-color: #e8dcd4;
+        }
+        .islet p {
+            font-size: 1em;
+            font-style: italic;
+            color: #4f4f4f;
+            margin: 0;
+        }
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease;
+            width: 90%;
+            font-size: 0.9em;
+            z-index: 1;
+        }
+        .islet:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Retraite Silencieuse : 5 Jours de Méditation et de Dépassement</h1>
+    <p>
+        Découvrez une retraite de cinq jours en <span class="highlight">silence complet</span>, entre méditations profondes, jeûne à l’eau et exercices physiques. 
+        Destinée aux méditants autonomes, cette expérience exigeante se vit en duo avec un accompagnateur, lui aussi soumis aux mêmes conditions strictes : 
+        sans paroles, sans distractions et dans un cadre dépouillé de toute dépendance (gsm, internet, tabac).
+    </p>
+    <p>
+        Attentif et présent, l’accompagnateur n’est ni un guide spirituel ni un enseignant, mais un <span class="highlight">pratiquant engagé</span> qui veille 
+        à ce que chaque étape se déroule dans les meilleures conditions possibles. Une immersion intense pour ceux qui souhaitent relever un véritable défi personnel.
+    </p>
+    
+    <div class="islets">
+        <div class="islet">
+            <p>"Le silence est la clé qui ouvre les portes de l'âme."</p>
+            <div class="tooltip">"Une porte s'ouvre sur la sérénité."</div>
+        </div>
+        <div class="islet">
+            <p>"Chaque souffle est un chemin vers la paix intérieure."</p>
+            <div class="tooltip">"Revenir à soi, un souffle à la fois."</div>
+        </div>
+        <div class="islet">
+            <p>"Relevez le défi du silence, et écoutez votre propre force."</p>
+            <div class="tooltip">"La force naît dans le calme et le silence."</div>
+        </div>
+        <div class="islet">
+            <p>"Laissez les distractions s'effacer et redécouvrez votre essence."</p>
+            <div class="tooltip">"Le vrai moi émerge dans l'immobilité."</div>
+        </div>
+        <div class="islet">
+            <p>"Dans l’immobilité, le corps et l'esprit trouvent leur équilibre."</p>
+            <div class="tooltip">"Un cœur paisible porte l'âme."</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
